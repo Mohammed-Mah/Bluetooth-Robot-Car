@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+const int SIZE = 50;
+
+void initializeArray(double* ptr)
+{
+    for (int i = 0; i < SIZE; i++) 
+    {
+        if (i < SIZE / 2) // first 25 components
+            *(ptr + i) = i * i;
+        else // last 25 components
+            *(ptr + i) = 3 * i;
+    }
+}
+
+void printArray(double* ptr)
+{
+    for (int i = 0; i < SIZE; i++) 
+    {
+        cout << *(ptr + i) << " ";
+        if ((i + 1) % 10 == 0) // print 10 elements per line
+            cout << endl;
+    }
+}
+
+int main()
+{
+    double alpha[SIZE];
+    double* ptr = alpha;
+
+    initializeArray(ptr);
+    printArray(ptr);
+
+    return 0;
+}
